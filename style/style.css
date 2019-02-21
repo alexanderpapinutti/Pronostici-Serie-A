@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#login-page{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darkgray;
+}
+
+.avatar{
+    width: 200px;
+    
+}
+
+.form-container {
+    width: 80%;
+    height: 280px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.form {
+    
+    
+}
+
+
+.login-box input[type="text"],input[type="password"] {
+    border: #fff solid 2px;
+    border-radius: 10px;
+    border-bottom: 1px solid red;
+    background: white;
+    outline: none;
+    height: 40px;
+    width: 100%;
+}
+
+.login-box input[type="submit"]{
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    background-color: red;
+    border: solid 1px red;
+    border-radius: 5px;
+}
+.enter{
+    height: 50px;
+}
+
+#error-msg{
+    font-size: 10px;
+    color: red;
+}
+
+#game-schedule-page{
+    height: 100vh;
+}
