@@ -3,6 +3,16 @@ body {
     padding: 0;
 }
 
+.bottom-side{
+    height: 10vh;
+    background: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
 #login-page{
     height: 100vh;
     width: 100%;
@@ -41,6 +51,7 @@ body {
 }
 
 
+
 .login-box input[type="text"],input[type="password"] {
     border: #fff solid 2px;
     border-radius: 10px;
@@ -66,6 +77,11 @@ body {
 #error-msg{
     font-size: 10px;
     color: red;
+}
+
+.table-container{
+    height: 90vh !important;
+    overflow: scroll;
 }
 
 #game-schedule-page{

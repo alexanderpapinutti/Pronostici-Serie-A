@@ -1,12 +1,79 @@
+
 var app = new Vue({
     el: '#app',
     data: {
-        currentView: 'login',
+        currentView: 'schedule',
         user: '',
         password: '',
+
+
+        sortKey: '',
+
+        search: '',
+
+        reverse: false,
+        
+        columns: ["Nome", "Punti", "Dettagli"],
+
+        players: [
+            {
+                name: 'John',
+                points: 50
+            },
+            {
+                name: 'Jack',
+                points: 35
+            },
+            {
+                name: 'Keith',
+                points: 28
+            },
+            {
+                name: 'Alain',
+                points: 17
+            },
+            {
+                name: 'Neil',
+                points: 1
+            },
+            {
+                name: 'Mark',
+                points: 72
+            },
+            {
+                name: 'Don',
+                points: 47
+            },
+            {
+                name: 'Walter',
+                points: 41
+            },
+            {
+                name: 'Jessy',
+                points: 33
+            },
+            {
+                name: 'Henck',
+                points: 22
+            },
+            {
+                name: 'Sal',
+                points: 9
+            },
+            {
+                name: 'Skyler',
+                points: 42
+            },
+            {
+                name: 'Holly',
+                points: 55
+            },
+    ],
+
+      
+
     },
     created() {
-
 
     },
 
@@ -16,13 +83,17 @@ var app = new Vue({
             var password = document.getElementsByTagName("input")[1].value;
             firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
                 app.setCurrentView('schedule');
-                app.getGamesSchedule();
+                //                app.getGamesSchedule();
             }).catch(function (error) {
                 var errorMessage = error.message;
                 swal(errorMessage);
             });
         },
-        
+        sortBy: function (sortKey) {
+            this.reverse = (this.sortKey == sortKey) ? !this.reverse : false;
+            this.sortKey = sortKey;
+        },
+
         setCurrentView: function (view) {
             this.currentView = view;
         },
@@ -34,9 +105,9 @@ var app = new Vue({
                 // An error happened.
             });
         },
-        
-        getGamesSchedule: function() {
-                fetch("https://heisenbug-seriea-live-scores-v1.p.rapidapi.com/api/serie-a", {
+
+        getGamesSchedule: function () {
+            fetch("https://heisenbug-seriea-live-scores-v1.p.rapidapi.com/api/serie-a", {
                     method: "GET",
 
                     headers: ({
@@ -52,8 +123,10 @@ var app = new Vue({
                     console.log(data)
                 })
                 .catch(error => alert(error));
-        
+
         },
+
+
 
     }
 

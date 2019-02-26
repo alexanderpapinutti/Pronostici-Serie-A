@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <title>Pronostici</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="style/style.css">
@@ -12,7 +13,7 @@
 
 <body>
     <div id="app">
-        <div v-if="currentView == 'login'"id="login-page">
+        <div v-if="currentView == 'login'" id="login-page">
             <div class="login-box">
                 <div>
                     <img src="img/user.png" class="avatar">
@@ -47,7 +48,36 @@
 
         </div>
         <div v-if="currentView == 'schedule'" id="games-schedule-page">
-            <button class='signout' v-on:click="signOut">Signout</button>
+            
+            <div class="table-container">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Punti</th>
+                        <th>Dettagli</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr v-for="player in players">
+                        <td>{{ player.name }}</td>
+                        <td>{{ player.points }}</td>
+                        <td><button class='btn'>dettagli</button></td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            </div>
+            <div class="bottom-side">
+                <button class='btn' v-on:click="signOut">Esci</button>
+                <button class='btn'>Tabellone</button>
+                <button class='btn'>Scommetti</button>
+                <button class='btn'>Risultati recenti</button>
+            </div>
+            
+  
         </div>
         <div id="betting-page">
 
